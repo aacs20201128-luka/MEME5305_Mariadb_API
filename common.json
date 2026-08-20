@@ -1,0 +1,8 @@
+{
+  "mariadb_connection":{
+    "host": "192.168.39.138",
+    "user": "meme5305",
+    "password": "123456",
+    "database": "MEME53_05"
+  }
+}
