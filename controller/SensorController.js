@@ -28,11 +28,12 @@ router.get("/api/sensor", async (req, res) => {
       host: data.mariadb_connection.host,
       user: data.mariadb_connection.user,
       password: data.mariadb_connection.password,
-      database: data.mariadb_connection.database
+      database: data.mariadb_connection.database,
+      connectTimeout: 5000
     });
 
     const rows = await conn.query(
-        "SELECT * FROM TEST_TB"
+        "SELECT * FROM dht11_data ORDER BY created_at DESC LIMIT 1;"
     );
 
     const result = rows.map(row => ({

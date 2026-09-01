@@ -4,11 +4,6 @@ import express from "express"; // npm 套件：建立 Web Server、路由、REST
 import mariadb from "mariadb"; // npm 套件：連線與操作 MariaDB 資料庫
 import ejs from "ejs";         // npm 套件：HTML 樣板引擎，將資料帶入網頁產生 HTML
 
-//一個 ES Module 最多只能有一個 default export，但可以同時有很多個 named export。
-// default export
-// → import 時不用大括號
-// named export
-// → import 時要用大括號
 import {DHT11} from "../model/DHT11.js";
 
 let conn;
@@ -30,7 +25,7 @@ export const close_mariadb = async function(){
 
 export const Query_DHT11 = async function(){
   const rows = await conn.query(
-    "SELECT * FROM TEST_TB"
+    "SELECT * FROM dht11_data"
   );
   let result = rows.map(row => new DHT11(
     row.id.toString(),
