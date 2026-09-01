@@ -25,7 +25,7 @@ export const close_mariadb = async function(){
 
 export const Query_DHT11 = async function(){
   const rows = await conn.query(
-    "SELECT * FROM dht11_data"
+    "SELECT * FROM dht11_data ORDER BY created_at DESC LIMIT 1;"
   );
   let result = rows.map(row => new DHT11(
     row.id.toString(),
