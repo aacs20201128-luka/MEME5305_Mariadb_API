@@ -1,11 +1,11 @@
 export class BH1750{
-  constructor(id, illuminance, created_at){ //照度
+  constructor(id, lux, created_at){ //照度
   //id      → constructor 傳進來的「參數」
   //this.id → 這個物件自己的「屬性」
   //「我根本沒有在 class 前面宣告 id 啊？」
   // 答案是：JavaScript 不需要你事先宣告這些實例屬性。
     this.id = id;
-    this.illuminance = illuminance;//lx 是照度（Illuminance）的單位，中文通常叫「勒克斯（lux）」
+    this.lux = lux;//lx 是照度（Illuminance）的單位，中文通常叫「勒克斯（lux）」
     this.created_at = created_at;
   }
 }

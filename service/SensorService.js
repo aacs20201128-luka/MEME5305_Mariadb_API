@@ -5,6 +5,7 @@ import mariadb from "mariadb"; // npm 套件：連線與操作 MariaDB 資料庫
 import ejs from "ejs";         // npm 套件：HTML 樣板引擎，將資料帶入網頁產生 HTML
 
 import {DHT11} from "../model/DHT11.js";
+import {BH1750} from "../model/BH1750.js"
 
 let conn;
 export const connection_mariadb = async function(){
@@ -38,10 +39,11 @@ export const Query_DHT11 = async function(){
 
 export const Query_BH1750 = async function(){
   const rows = await conn.query(
-    "SELECT * FROM TEST_TB");
+    "SELECT * FROM bh1750_data ORDER BY created_at DESC LIMIT 1;"
+  );
   let result = rows.map(row => new BH1750(
-    row.id.toString()+"lx",
-    row.illuminance,
+    row.id.toString(),
+    row.lux,
     row.created_at
   ));
   return result;

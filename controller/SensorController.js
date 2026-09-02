@@ -6,7 +6,8 @@ import ejs from "ejs";         // npm 套件：HTML 樣板引擎，將資料帶�
 
 import {connection_mariadb,
   close_mariadb,
-  Query_DHT11
+  Query_DHT11,
+  Query_BH1750
 } from '../service/SensorService.js';
 
 export var router = express.Router();
